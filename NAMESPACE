@@ -1,0 +1,3 @@
+useDynLib(qrmono)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)
