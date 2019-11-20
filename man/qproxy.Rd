@@ -57,7 +57,7 @@ y <- -3 * sin((x - 0.5) * pi) + rnorm(50)
 kts <- c(rep(min(x) - 0.1, 2), seq(min(x), max(x), 20), rep(x + 0.1, 2))
 B <- spline.des(kts, x, 2)$design
 
-coef <- qproxy(B, y, tau = 0.5, lambda = 2, constraint = "increase")
+coef <- qproxy(B, y, tau = 0.5, lambda = 2, constraint = "decrease")
 yfit <- drop(B \%*\% coef)
 }
 \keyword{Constrained quantile regression curve}
