@@ -43,7 +43,7 @@ y <- -3 * sin((x - 0.5) * pi) + rnorm(50)
 kts <- c(rep(min(x) - 0.1, 2), seq(min(x), max(x), 20), rep(x + 0.1, 2))
 B <- spline.des(kts, x, 2)$design
 
-lam.min <- qproxy_gacv(B, y, tau = 0.5, lambda = seq(0.1, 5, length.out = 50), constraint = "increase")$lambda.min
+lam.min <- qproxy_gacv(B, y, tau = 0.5, lambda = seq(0.1, 5, length.out = 50), constraint = "decrease")$lambda.min
 
 coef <- qproxy(B, y, tau = 0.5, lambda = lam.min, constraint = "decrease")
 yfit <- drop(B \%*\% coef)
